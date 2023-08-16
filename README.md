@@ -487,3 +487,10 @@ describe("test", () => {
 });
 ```
 
+### 13. 引入 ahooks
+
+为了能够做到开箱即用，引入 ahooks 提供大量的常用 hooks，如 `useRequest`。
+
+```shell
+pnpm add ahooks
+```
