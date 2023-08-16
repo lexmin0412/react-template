@@ -1,37 +1,23 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Button } from 'antd'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='flex items-center justify-center'>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="m-3">
+        <Link to="/about" className="cursor-pointer">
+          <Button>路由切换</Button>
+        </Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="m-3">
+        <Link to="/antd-demo">
+          <Button>AntD Demo</Button>
+        </Link>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-			<Link to='/about' className='cursor-pointer'>路由切换</Link>
     </>
-  )
+  );
 }
 
 export default App
