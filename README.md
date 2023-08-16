@@ -336,3 +336,154 @@ tailwind 的基础类中对标签默认样式进行了重置，会影响 AntD �
 @tailwind components;
 @tailwind utilities;
 ```
+
+### 11. 添加自动化测试支持
+
+#### 11.1 安装 jest
+
+```shell
+pnpm add jest @types/jest @jest/types
+```
+
+#### 11.2 初始化 jest 配置文件
+
+```shell
+npx jest --init
+```
+
+按照下面的示例依次选择：
+- add running test script —— yes
+- use TypeScript —— yes
+- test environment —— jsdom(browser-like)
+- add coverage reports —— no
+- provider -- babel
+- clear -- yes
+
+完成选择后，将会在根目录初始化 `jest.config.ts` 文件。
+
+#### 11.3 配置 babel
+
+由于在 proivder 项选择了 babel，所以需要安装 babel 相关依赖：
+
+```shell
+pnpm add babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript -D
+```
+
+然后新增 `babel.config.cjs` 文件：
+
+```js
+// ./babel.config.cjs
+module.exports = {
+  presets: [
+    ["@babel/preset-env", { targets: { node: "current" } }],
+    ["@babel/preset-react",{ runtime: "automatic" }], // 自动导入react
+    "@babel/preset-typescript",
+  ],
+};
+```
+
+文件后缀为 `.cjs` 是因为 `package.json` 中的 `type` 为 `"module"`
+
+#### 11.4 安装附加依赖
+
+根据以上的配置，还需要安装以下依赖：
+
+```shell
+pnpm add ts-node jest-environment-jsdom -D
+```
+
+原因：
+
+- jest 在编译 ts 时使用了 ts-node 进行编译
+- 初始化配置时 test enviroment 选择了 jsdom, 所以 jest-environment-jsdom 需要手动安装
+
+#### 11.5 特殊文件格式支持
+
+`jest.config.ts` 中添加如下内容：
+
+```ts
+export default {
+  transform: {
+		// 声明额外扩展名识别转换器：jest 不知道如何加载除 js/jsx 之外的其他扩展名
+    "^.+.(js|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+		// mock 自定义 svg 转换
+		"^.+.svg$": "<rootDir>/scripts/svg-transform.js",
+  },
+};
+```
+
+其中，引用的 `scripts/svg-transform.js` 文件内容如下：
+
+```js
+export default {
+  process() {
+    return { code: "module.exports = {};" };
+  },
+  getCacheKey() {
+    return "svgTransform"; // SVG固定返回这个字符串
+  },
+};
+```
+
+#### 11.6 CSS 代理
+
+先安装代理库：
+
+```shell
+pnpm add identity-obj-proxy
+```
+
+在 jest.config.ts 中添加如下配置：
+
+```ts
+export default {
+  moduleNameMapper: {
+		// 告诉 Jest 将此对象模拟为导入的 CSS 模块
+    "\.(css|less)$": "identity-obj-proxy"
+  }
+};
+```
+
+### 12. 配置 React Testing Library
+
+#### 12.1 安装相关依赖
+
+```shell
+pnpm add @testing-library/jest-dom @testing-library/react @testing-library/user-event -D
+```
+
+#### 12.2 全局导入 `@testing-library/jest-dom`
+
+在 jest.config.ts 中添加如下依赖：
+
+```ts
+export default {
+  // ... other config
+  setupFilesAfterEnv: ["<rootDir>/scripts/jest-dom-setup.js"],
+};
+```
+
+新建 `scripts/jest-dom-setup.js` 文件，填入如下内容：
+
+```js
+import '@testing-library/jest-dom'
+```
+
+#### 第一个测试用例
+
+新建 `src/App.test.tsx`, 填入以下内容：
+
+```tsx
+// 这里文件后缀修改为 tsx，因为需要测试 dom
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import App from "./App";
+
+describe("test", () => {
+  test("first unit test", () => {
+    render(<App />);
+    expect(screen.getByText("Vite + React")).toBeInTheDocument();
+  });
+});
+```
+
