@@ -1,23 +1,25 @@
-import { Link } from 'react-router-dom'
-import { Button } from 'antd'
-import './App.css'
+import React from "react";
+import {RouterProvider} from "react-router-dom";
+import {ConfigProvider} from "antd";
+import zhCN from "antd/locale/zh_CN";
+import router from "./routers";
+import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <div className="m-3">
-        <Link to="/about" className="cursor-pointer">
-          <Button>路由切换</Button>
-        </Link>
-      </div>
-      <div className="m-3">
-        <Link to="/antd-demo">
-          <Button>AntD Demo</Button>
-        </Link>
-      </div>
-    </>
+    <React.StrictMode>
+      <ConfigProvider
+        locale={zhCN}
+        theme={{
+          token: {
+            colorPrimary: "#1b88ff",
+          },
+        }}
+      >
+        <RouterProvider router={router} />
+      </ConfigProvider>
+    </React.StrictMode>
   );
 }
 
-export default App
+export default App;
