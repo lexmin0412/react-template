@@ -199,6 +199,8 @@ export default {
 </h1>
 ```
 
+现在我们可以用 `tailwindcss` 来控制绝大部分的样式，`index.css` 和 `App.css` 文件中的样式可以全部删除掉了。
+
 ### 9. 接入 react-router, 添加路由支持
 
 #### 9.1 安装依赖：
@@ -268,4 +270,69 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
+```
+
+### 10. 引入 Ant Design
+
+#### 10.1 安装依赖
+
+时间相关的组件要用到 dayjs, 顺便一起安装了。
+
+```shell
+pnpm add antd dayjs
+```
+
+#### 10.2 国际化
+
+AntD 的默认语言是英文，要切换为中文时需要进行国际化配置。
+
+在入口组件的最外层嵌套 `ConfigProvider`, 添加 locale 配置:
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { ConfigProvider } from "antd";
+import zhCN from "antd/locale/zh_CN";
+import router from "./routers";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <ConfigProvider locale={zhCN}>
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  </React.StrictMode>
+);
+```
+
+放到路由容器外层的原因是路由容器组件中也可能会用到 Antd组件（例如弹窗）。
+
+#### 10.3 配置主题
+
+AntD V5 采用了 DesignToken 设计，配置主题非常简单。
+
+上面在国际化中已经引入了 `ConfigProvider` 组件，这一步中使用它来修改主题色，给入口文件的 ConfigProvider 添加 theme 属性：
+
+```tsx
+// main.tsx
+<ConfigProvider
+  theme={{
+    token: {
+      colorPrimary: "#ff4a4a",
+    },
+  }}
+>
+```
+
+`token.colorPrimary` 即为整个系统的主题色。如果要修改其他属性，请查看 [官方文档](https://ant.design/docs/react/customize-theme-cn)。
+
+#### 10.4 规避 tailwind 的样式覆盖
+
+tailwind 的基础类中对标签默认样式进行了重置，会影响 AntD 组件的基础样式，所以我们需要把入口中的基础类引用去掉：
+
+```css
+/* @tailwind base; */  // 干掉这一行
+@tailwind components;
+@tailwind utilities;
 ```
