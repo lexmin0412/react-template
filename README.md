@@ -199,3 +199,73 @@ export default {
 </h1>
 ```
 
+### 9. 接入 react-router, 添加路由支持
+
+#### 9.1 安装依赖：
+
+```shell
+pnpm add react-router-dom
+```
+
+#### 9.2 创建、配置路由
+
+新建 `src/routers/index` 文件，添加如下内容:
+
+```tsx
+import {
+  createBrowserRouter,
+	Link
+} from "react-router-dom";
+import App from "../App";
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+    },
+    {
+      path: "/about",
+      element: (
+        <div>
+          <div>About</div>
+					<div>
+						<Link className="cursor-pointer" to='/' >回到首页</Link>
+					</div>
+        </div>
+      ),
+    },
+  ],
+  {
+    basename: "/react-template",
+  }
+);
+
+export default router
+```
+
+用到的 API:
+
+- 使用 `createBrowserRouter` 创建路由对象
+	- 第一个参数为路由列表
+	- 第二个参数为配置，有 basename 等
+- `path` 属性表示路由, `element` 属性表示组件，可以是任何 JSX
+- 使用 `<Link />` 组件进行路由跳转
+
+#### 9.3 替换入口
+
+将入口文件 `main.tsx` 中引用的最外层组件替换为 `<RouterProvider />`, `router` 属性设置为上面声明的 `router` 对象。
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from "react-router-dom";
+import router from './routers';
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+```
