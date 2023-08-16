@@ -153,3 +153,49 @@ Your site is live at https://lexmin0412.github.io/react-template/
 
 进入 repo 页面，进入 Settings => General, 把 `Template repository` 一项勾上即可，再次切换到 repo 的默认页面，就会出现 `Use this template` 按钮，可以基于此创建一个新仓库。
 
+### 8. 添加 tailwindcss 支持
+
+#### 8.1 安装依赖
+
+```shell
+# 安装依赖
+pnpm add tailwindcss postcss autoprefixer -D
+# 初始化配置文件
+npx tailwindcss init -p
+```
+
+执行完成后，根目录会新增 `tailwind.config.js` 和 `postcss.config.js` 两个文件。
+
+#### 8.2 修改配置文件
+
+在 `tailwind.config.js` 中添加如下内容，使对应的文件能够被 tailwind 识别。
+
+```ts
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+}
+```
+
+#### 8.3 引入基础类
+
+在入口 css 文件的顶部添加如下内容，这是书写 `tailwind` class 的基础。
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+#### 8.4 添加 tailwind 类名，查看效果
+
+在 html 标签上添加一个类名，即可看到效果：
+
+```html
+<h1 className="bg-blue">
+  Hello world!
+</h1>
+```
+
