@@ -1,8 +1,22 @@
 # React 单页应用模板
 
-此模板的搭建步骤如下。
+React 应用模板，用于个人项目的基座，免去每次初始化项目的繁琐过程，使用的框架/库包括 React、TypeScript、TailwindCSS、React Router、Ant Design、AHooks，依赖管理工具为 PNPM，构建工具为 Vite，具备 Jest 单测和 React Testing Library 组件测试能力，支持 Github Actions 部署，Github Pages 访问。
+
+## 技术栈
+
+- React V18
+- TypeScript V5
+- TailwindCSS V3
+- React Router V6
+- Ant Design V5
+- AHooks V3
+- PNPM V7
+- Vite V4
+- Jest V29
 
 ## 搭建步骤
+
+此模板的搭建步骤如下，记录下来用于后续其他项目的开发。
 
 ### 1. 初始化空间
 
