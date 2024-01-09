@@ -2,6 +2,12 @@
 
 React 应用模板，用于个人项目的基座，免去每次初始化项目的繁琐过程，使用的框架/库包括 React、TypeScript、TailwindCSS、React Router、Ant Design、AHooks，依赖管理工具为 PNPM，构建工具为 Vite，具备 Jest 单测和 React Testing Library 组件测试能力，支持 Github Actions 部署，Github Pages 访问。
 
+## 相关仓库
+
+| 仓库名         | 仓库地址                                     | 说明               |
+|----------------|----------------------------------------------|--------------------|
+| vue-template | https://github.com/lexmin0412/vue-template | vue 单页应用模板 |
+
 ## 技术栈
 
 - React V18
@@ -11,7 +17,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 - Ant Design V5
 - AHooks V3
 - PNPM V7
-- Vite V4
+- Vite V5
 - Jest V29
 
 ## 搭建步骤
@@ -112,33 +118,66 @@ export default defineConfig({
 在根目录新建 .github/workflows 文件夹，并新建 `deploy.yml` 文件，填入如下内容：
 
 ```yaml
-name: Deploy
+name: Deploy Site to Pages
+
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  main:
+  # Build job
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        persist-credentials: false
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Not needed if lastUpdated is not enabled
+      - uses: pnpm/action-setup@v2 # pnpm is optional but recommended, you can also use npm / yarn
+        with:
+          version: 8
+          cache: pnpm
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build with Vite
+        run: |
+          pnpm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist
 
-    - name: Install and Build
-      run: |
-        npm install pnpm@7.24.0 -g
-        pnpm install
-        pnpm build
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist
 ```
 
 其中，`on.push.branches` 表示触发 action 的分支，选择初始化 Git 时使用的分支即可。
