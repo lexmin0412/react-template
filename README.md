@@ -13,7 +13,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 - React V18
 - TypeScript V5
 - TailwindCSS V3
-- React Router V6
+- Pure React Router V0
 - Ant Design V5
 - AHooks V3
 - PNPM V7
@@ -254,12 +254,14 @@ export default {
 
 现在我们可以用 `tailwindcss` 来控制绝大部分的样式，`index.css` 和 `App.css` 文件中的样式可以全部删除掉了。
 
-### 9. 接入 react-router, 添加路由支持
+### 9. 接入 pure-react-router, 添加路由支持
+
+> [为什么不使用 react-router-dom ?](https://github.com/lexmin0412/pure-react-router?tab=readme-ov-file#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89-pure-react-router)
 
 #### 9.1 安装依赖：
 
 ```shell
-pnpm add react-router-dom
+pnpm add pure-react-router
 ```
 
 #### 9.2 创建、配置路由
@@ -268,59 +270,45 @@ pnpm add react-router-dom
 
 ```tsx
 import {
-  createBrowserRouter,
 	Link
-} from "react-router-dom";
+} from "pure-react-router";
 import App from "../App";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-    },
-    {
-      path: "/about",
-      element: (
-        <div>
-          <div>About</div>
-					<div>
-						<Link className="cursor-pointer" to='/' >回到首页</Link>
-					</div>
-        </div>
-      ),
-    },
-  ],
+export const routes = [
   {
-    basename: "/react-template",
-  }
-);
-
-export default router
+    path: "/",
+    component: () => <App />,
+  },
+  {
+    path: "/about",
+    component: () => (
+      <div>
+        <div>About</div>
+				<div>
+					<Link className="cursor-pointer" to='/' >回到首页</Link>
+				</div>
+      </div>
+    ),
+  },
+]
 ```
-
-用到的 API:
-
-- 使用 `createBrowserRouter` 创建路由对象
-	- 第一个参数为路由列表
-	- 第二个参数为配置，有 basename 等
-- `path` 属性表示路由, `element` 属性表示组件，可以是任何 JSX
-- 使用 `<Link />` 组件进行路由跳转
 
 #### 9.3 替换入口
 
-将入口文件 `main.tsx` 中引用的最外层组件替换为 `<RouterProvider />`, `router` 属性设置为上面声明的 `router` 对象。
+将入口文件 `main.tsx` 中引用的最外层组件替换为 `<BrowserRouter />`, `routes` 属性设置为上面声明的 `routes` 数组。
 
 ```tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider } from "react-router-dom";
-import router from './routers';
+import { BrowserRouter, Route } from "pure-react-router";
+import { routes } from './routers';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter routes={routes} basename="/">
+      <Route />
+    </BrowserRouter>
   </React.StrictMode>,
 )
 ```

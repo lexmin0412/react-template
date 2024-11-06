@@ -1,37 +1,27 @@
-import {
-  createBrowserRouter,
-	Link
-} from "react-router-dom";
-import Home from "../pages/home";
-import AntdDemo from "../pages/antd-demo";
+import AntdDemo from "@/pages/antd-demo";
+import Home from "@/pages/home";
+import { Link } from "pure-react-router";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/antd-demo",
-      element: <AntdDemo />,
-    },
-    {
-      path: "/about",
-      element: (
-        <div>
-          <div>About</div>
-          <div>
-            <Link className="cursor-pointer" to="/">
-              回到首页
-            </Link>
-          </div>
-        </div>
-      ),
-    },
-  ],
+export const routes = [
   {
-    basename: "/react-template/",
-  }
-);
-
-export default router
+    path: "/",
+    component: Home,
+  },
+  {
+    path: "/antd-demo",
+    component: AntdDemo,
+  },
+  {
+    path: "/about",
+    component: () => (
+      <div>
+        <div>About</div>
+        <div>
+          <Link className="cursor-pointer" to="/">
+            回到首页
+          </Link>
+        </div>
+      </div>
+    ),
+  },
+]

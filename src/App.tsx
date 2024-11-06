@@ -1,8 +1,8 @@
 import React from "react";
-import {RouterProvider} from "react-router-dom";
+import {BrowserRouter, Route} from "pure-react-router";
 import {ConfigProvider} from "antd";
 import zhCN from "antd/locale/zh_CN";
-import router from "./routers";
+import { routes } from "./routers";
 import "./App.css";
 
 function App() {
@@ -16,7 +16,9 @@ function App() {
           },
         }}
       >
-        <RouterProvider router={router} />
+        <BrowserRouter routes={routes} basename="/react-template">
+          <Route />
+        </BrowserRouter>
       </ConfigProvider>
     </React.StrictMode>
   );
