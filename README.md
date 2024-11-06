@@ -270,7 +270,7 @@ pnpm add pure-react-router
 
 ```tsx
 import {
-	Link
+  Link
 } from "pure-react-router";
 import App from "../App";
 
@@ -284,9 +284,9 @@ export const routes = [
     component: () => (
       <div>
         <div>About</div>
-				<div>
-					<Link className="cursor-pointer" to='/' >回到首页</Link>
-				</div>
+	    <div>
+          <Link className="cursor-pointer" to='/' >回到首页</Link>
+        </div>
       </div>
     ),
   },
