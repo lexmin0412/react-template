@@ -4,10 +4,6 @@ import { Link } from "pure-react-router";
 
 export const routes = [
   {
-    path: "/",
-    component: Home,
-  },
-  {
     path: "/antd-demo",
     component: AntdDemo,
   },
@@ -23,5 +19,9 @@ export const routes = [
         </div>
       </div>
     ),
+  },
+  {
+    path: "/",
+    component: Home,
   },
 ]
