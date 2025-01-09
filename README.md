@@ -1,6 +1,6 @@
 # React 单页应用模板
 
-React 应用模板，用于个人项目的基座，免去每次初始化项目的繁琐过程，使用的框架/库包括 React、TypeScript、TailwindCSS、React Router、Ant Design、AHooks，依赖管理工具为 PNPM，构建工具为 Vite，具备 Jest 单测和 React Testing Library 组件测试能力，支持 Github Actions 部署，Github Pages 访问。
+React 应用模板，用于个人项目的基座，免去每次初始化项目的繁琐过程，使用的框架/库包括 React、TypeScript、TailwindCSS、Pure React Router、Ant Design、AHooks，依赖管理工具为 PNPM，构建工具为 Rsbuild，具备 Jest 单测和 React Testing Library 组件测试能力，支持 Github Actions 部署，Github Pages 访问。
 
 ## 相关仓库
 
@@ -17,7 +17,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 - Ant Design V5
 - AHooks V3
 - PNPM V7
-- Vite V5
+- Rsbuild V1
 - Jest V29
 
 ## 搭建步骤
@@ -26,13 +26,13 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 
 ### 1. 初始化空间
 
-通过 vite 官方脚手架来初始化应用模板。
+通过 Rsbuild 官方脚手架来初始化应用模板。
 
 ```bash
-npx create-vite
+npx create-rsbuild
 ```
 
-依次输入目录名、选择React、选择TypeScript，然后 `cd` 进入目录，通过 `code .` 打开目录。
+依次输入目录名、选择 React、选择 TypeScript，然后 `cd` 进入目录，通过 `code .` 打开目录。
 
 ### 2. 配置 npm 源
 
@@ -105,11 +105,13 @@ git push -u origin master
 
 #### 6.1 修改 baseURL
 
-在 `vite.config.ts` 中添加如下配置：
+在 `rsbuild.config.ts` 中添加如下配置：
 
 ```ts
 export default defineConfig({
-	base: '/react-template/'
+  server: {
+    base: '/react-template'
+  }
 })
 ```
 
@@ -157,7 +159,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: pnpm install
-      - name: Build with Vite
+      - name: Build with Rsbuild
         run: |
           pnpm run build
       - name: Upload artifact
@@ -523,7 +525,7 @@ import App from "./App";
 describe("test", () => {
   test("first unit test", () => {
     render(<App />);
-    expect(screen.getByText("Vite + React")).toBeInTheDocument();
+    expect(screen.getByText("Rsbuild + React")).toBeInTheDocument();
   });
 });
 ```
