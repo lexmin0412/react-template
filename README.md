@@ -278,10 +278,6 @@ import App from "../App";
 
 export const routes = [
   {
-    path: "/",
-    component: () => <App />,
-  },
-  {
     path: "/about",
     component: () => (
       <div>
@@ -291,6 +287,11 @@ export const routes = [
         </div>
       </div>
     ),
+  },
+  // 注意根路由要放最后
+  {
+    path: "/",
+    component: () => <App />,
   },
 ]
 ```
