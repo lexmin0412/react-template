@@ -15,8 +15,8 @@ dependencies:
     specifier: ^1.11.9
     version: 1.11.9
   pure-react-router:
-    specifier: ^0.0.3
-    version: 0.0.3(react@18.2.0)
+    specifier: ^0.0.5
+    version: 0.0.5(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -5052,8 +5052,8 @@ packages:
     resolution: {integrity: sha512-6Yg0ekpKICSjPswYOuC5sku/TSWaRYlA0qsXqJgM/d/4pLPHPuTxK7Nbf7jFKzAeedUhR8C7K9Uv63FBsSo8xQ==}
     dev: true
 
-  /pure-react-router@0.0.3(react@18.2.0):
-    resolution: {integrity: sha512-irvE8blVGRfmR/VDlpn/W0aaSDh7dNKQPavYN7COPrqz5yMF8QunupdL2480ILWBvG9hBLYw99GtcjxXrSMzJw==}
+  /pure-react-router@0.0.5(react@18.2.0):
+    resolution: {integrity: sha512-Aswbrm3eNdtRvZlx+KXvP4jhOPDV6jyBDtz4O8qljAlzKyk5dGjHC3OwYBMOOoXB4AuCKEWsJ78fH4SbYFZgjQ==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
