@@ -13,7 +13,7 @@ export const routes = [
       <div>
         <div>About</div>
         <div>
-          <Link className="cursor-pointer" to="/">
+          <Link className="cursor-pointer text-blue-700" to="/">
             回到首页
           </Link>
         </div>
