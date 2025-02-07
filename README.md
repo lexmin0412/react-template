@@ -10,7 +10,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 
 ## 技术栈
 
-- React V18
+- React V19
 - TypeScript V5
 - TailwindCSS V4
 - Pure React Router V0
