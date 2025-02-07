@@ -37,7 +37,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm install
-      - name: Build with Vite
+      - name: Build with Rsbuild
         run: |
           pnpm run build
       - name: Upload artifact
