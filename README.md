@@ -12,7 +12,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 
 - React V18
 - TypeScript V5
-- TailwindCSS V3
+- TailwindCSS V4
 - Pure React Router V0
 - Ant Design V5
 - AHooks V3
@@ -210,28 +210,25 @@ Your site is live at https://lexmin0412.github.io/react-template/
 
 ### 8. 添加 tailwindcss 支持
 
+> 此部分完全参照 Rsbuild 官方 TailwindCSS v4 接入文档操作，详见：https://rsbuild.dev/zh/guide/basic/tailwindcss
+
 #### 8.1 安装依赖
 
 ```shell
 # 安装依赖
-pnpm add tailwindcss postcss autoprefixer -D
-# 初始化配置文件
-npx tailwindcss init -p
+pnpm add tailwindcss @tailwindcss/postcss -D
 ```
 
-执行完成后，根目录会新增 `tailwind.config.js` 和 `postcss.config.js` 两个文件。
+#### 8.2 配置 PostCSS
 
-#### 8.2 修改配置文件
+在 `postcss.config.js` 中添加如下内容：
 
-在 `tailwind.config.js` 中添加如下内容，使对应的文件能够被 tailwind 识别。
-
-```ts
+```js
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-}
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
 ```
 
 #### 8.3 引入基础类
@@ -239,9 +236,7 @@ export default {
 在入口 css 文件的顶部添加如下内容，这是书写 `tailwind` class 的基础。
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 ```
 
 #### 8.4 添加 tailwind 类名，查看效果
