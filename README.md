@@ -366,16 +366,6 @@ AntD V5 采用了 DesignToken 设计，配置主题非常简单。
 
 `token.colorPrimary` 即为整个系统的主题色。如果要修改其他属性，请查看 [官方文档](https://ant.design/docs/react/customize-theme-cn)。
 
-#### 10.4 规避 tailwind 的样式覆盖
-
-tailwind 的基础类中对标签默认样式进行了重置，会影响 AntD 组件的基础样式，所以我们需要把入口中的基础类引用去掉：
-
-```css
-/* @tailwind base; */  // 干掉这一行
-@tailwind components;
-@tailwind utilities;
-```
-
 ### 11. 添加自动化测试支持
 
 #### 11.1 安装 jest
