@@ -323,7 +323,7 @@ pnpm add antd dayjs
 
 #### 10.2 国际化
 
-AntD 的默认语言是英文，要切换为中文时需要进行国际化配置。
+Ant Design 的默认语言是英文，要切换为中文时需要进行国际化配置。
 
 在入口组件的最外层嵌套 `ConfigProvider`, 添加 locale 配置:
 
@@ -345,11 +345,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 ```
 
-放到路由容器外层的原因是路由容器组件中也可能会用到 Antd组件（例如弹窗）。
+放到路由容器外层的原因是路由容器组件中也可能会用到 Ant Design 组件（例如弹窗）。
 
 #### 10.3 配置主题
 
-AntD V5 采用了 DesignToken 设计，配置主题非常简单。
+Ant Design V5 采用了 DesignToken 设计，配置主题非常简单。
 
 上面在国际化中已经引入了 `ConfigProvider` 组件，这一步中使用它来修改主题色，给入口文件的 ConfigProvider 添加 theme 属性：
 
@@ -392,7 +392,7 @@ npx jest --init
 
 #### 11.3 配置 babel
 
-由于在 proivder 项选择了 babel，所以需要安装 babel 相关依赖：
+由于在 provider 项选择了 babel，所以需要安装 babel 相关依赖：
 
 ```shell
 pnpm add babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript -D
