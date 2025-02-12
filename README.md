@@ -16,7 +16,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 - Pure React Router V0
 - Ant Design V5
 - AHooks V3
-- PNPM V7
+- PNPM V8
 - Rsbuild V1
 - Jest V29
 
