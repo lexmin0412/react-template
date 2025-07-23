@@ -1,5 +1,6 @@
 import { useRequest } from 'ahooks'
 import { Button, message } from 'antd'
+import { Link } from 'pure-react-router';
 
 function Home() {
 	const {
@@ -29,12 +30,12 @@ function Home() {
       </div>
       <div className="m-3">
         <Button>
-          <a href="/react-template/about">路由切换</a>
+          <Link to="/about">路由切换</Link>
         </Button>
       </div>
       <div className="m-3">
         <Button>
-          <a href="/react-template/antd-demo">AntD Demo</a>
+          <Link to="/antd-demo">AntD Demo</Link>
         </Button>
       </div>
     </>
