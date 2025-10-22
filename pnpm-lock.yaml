@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       ahooks:
-        specifier: ^3.7.8
-        version: 3.9.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.9.5
+        version: 3.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       antd:
-        specifier: ^5.23.2
-        version: 5.26.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^5.27.5
+        version: 5.27.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       dayjs:
         specifier: ^1.11.9
         version: 1.11.13
@@ -29,7 +29,7 @@ importers:
     devDependencies:
       '@ant-design/v5-patch-for-react-19':
         specifier: ^1.0.3
-        version: 1.0.3(antd@5.26.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 1.0.3(antd@5.27.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@babel/core':
         specifier: ^7.22.10
         version: 7.28.0
@@ -1006,8 +1006,8 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  '@rc-component/qrcode@1.0.0':
-    resolution: {integrity: sha512-L+rZ4HXP2sJ1gHMGHjsg9jlYBX/SLN2D6OxP9Zn3qgtpMWtO2vUfxVFwiogHpAIqs54FnALxraUy/BCO1yRIgg==}
+  '@rc-component/qrcode@1.0.1':
+    resolution: {integrity: sha512-g8eeeaMyFXVlq8cZUeaxCDhfIYjpao0l9cvm5gFwKXy/Vm1yDWV7h2sjH5jHYzdFedlVKBpATFB1VKMrHzwaWQ==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
@@ -1281,6 +1281,9 @@ packages:
   '@types/jest@29.5.14':
     resolution: {integrity: sha512-ZN+4sdnLUbo8EVvVc2ao0GFW6oVrQRPn4K2lglySj7APvSrgzxHiNNK99us4WDMi57xxA2yggblIAMNhXOotLQ==}
 
+  '@types/js-cookie@3.0.6':
+    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
+
   '@types/jsdom@20.0.1':
     resolution: {integrity: sha512-d0r18sZPmMQr1eG35u12FZfhIXNrnsPU/g5wvRKCUf/tOGilKKwYMYGqh33BNR6ba+2gkHw1EUiHoN3mn7E5IQ==}
 
@@ -1404,9 +1407,9 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
 
-  ahooks@3.9.0:
-    resolution: {integrity: sha512-r20/C38aFyU3Zqp3620gkdLnxmQhnmWORB3eGGTDlM4i/fOc0GUvM+f2oleMzEu7b3+pHXyzz+FB6ojxsUdYdw==}
-    engines: {node: '>=8.0.0'}
+  ahooks@3.9.5:
+    resolution: {integrity: sha512-TrjXie49Q8HuHKTa84Fm9A+famMDAG1+7a9S9Gq6RQ0h90Jgqmiq3CkObuRjWT/C4d6nRZCw35Y2k2fmybb5eA==}
+    engines: {node: '>=18'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -1430,8 +1433,8 @@ packages:
     resolution: {integrity: sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==}
     engines: {node: '>=10'}
 
-  antd@5.26.6:
-    resolution: {integrity: sha512-k8ipeT+UL2tP/x4jHTXElScAxsD94JgrIEeGHj80nNO4dL9hqcmaOUBpHo3ieCf6MFjhS7gLUthysQeP6e7DUg==}
+  antd@5.27.6:
+    resolution: {integrity: sha512-70HrjVbzDXvtiUQ5MP1XdNudr/wGAk9Ivaemk6f36yrAeJurJSmZ8KngOIilolLRHdGuNc6/Vk+4T1OZpSjpag==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -2085,6 +2088,7 @@ packages:
 
   intersection-observer@0.12.2:
     resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
+    deprecated: The Intersection Observer polyfill is no longer needed and can safely be removed. Intersection Observer has been Baseline since 2019.
 
   is-arguments@1.2.0:
     resolution: {integrity: sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA==}
@@ -2907,8 +2911,8 @@ packages:
       react: '*'
       react-dom: '*'
 
-  rc-slider@11.1.8:
-    resolution: {integrity: sha512-2gg/72YFSpKP+Ja5AjC5DPL1YnV8DEITDQrcc1eASrUYjl0esptaBVJBh5nLTXCCp15eD8EuGjwezVGSHhs9tQ==}
+  rc-slider@11.1.9:
+    resolution: {integrity: sha512-h8IknhzSh3FEM9u8ivkskh+Ef4Yo4JRIY2nj7MrH6GQmrwV6mcpJf5/4KgH5JaVI1H3E52yCdpOlVyGZIeph5A==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
@@ -2927,22 +2931,22 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  rc-table@7.51.1:
-    resolution: {integrity: sha512-5iq15mTHhvC42TlBLRCoCBLoCmGlbRZAlyF21FonFnS/DIC8DeRqnmdyVREwt2CFbPceM0zSNdEeVfiGaqYsKw==}
+  rc-table@7.54.0:
+    resolution: {integrity: sha512-/wDTkki6wBTjwylwAGjpLKYklKo9YgjZwAU77+7ME5mBoS32Q4nAwoqhA2lSge6fobLW3Tap6uc5xfwaL2p0Sw==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  rc-tabs@15.6.1:
-    resolution: {integrity: sha512-/HzDV1VqOsUWyuC0c6AkxVYFjvx9+rFPKZ32ejxX0Uc7QCzcEjTA9/xMgv4HemPKwzBNX8KhGVbbumDjnj92aA==}
+  rc-tabs@15.7.0:
+    resolution: {integrity: sha512-ZepiE+6fmozYdWf/9gVp7k56PKHB1YYoDsKeQA1CBlJ/POIhjkcYiv0AGP0w2Jhzftd3AVvZP/K+V+Lpi2ankA==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  rc-textarea@1.10.0:
-    resolution: {integrity: sha512-ai9IkanNuyBS4x6sOL8qu/Ld40e6cEs6pgk93R+XLYg0mDSjNBGey6/ZpDs5+gNLD7urQ14po3V6Ck2dJLt9SA==}
+  rc-textarea@1.10.2:
+    resolution: {integrity: sha512-HfaeXiaSlpiSp0I/pvWpecFEHpVysZ9tpDLNkxQbMvMz6gsr7aVZ7FpWP9kt4t7DB+jJXesYS0us1uPZnlRnwQ==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -3509,9 +3513,9 @@ snapshots:
       resize-observer-polyfill: 1.5.1
       throttle-debounce: 5.0.2
 
-  '@ant-design/v5-patch-for-react-19@1.0.3(antd@5.26.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@ant-design/v5-patch-for-react-19@1.0.3(antd@5.27.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      antd: 5.26.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      antd: 5.27.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
@@ -4652,11 +4656,10 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@rc-component/qrcode@1.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@rc-component/qrcode@1.0.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.27.6
       classnames: 2.5.1
-      rc-util: 5.44.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
@@ -4936,6 +4939,8 @@ snapshots:
       expect: 29.7.0
       pretty-format: 29.7.0
 
+  '@types/js-cookie@3.0.6': {}
+
   '@types/jsdom@20.0.1':
     dependencies:
       '@types/node': 24.1.0
@@ -5083,9 +5088,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ahooks@3.9.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  ahooks@3.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.27.6
+      '@types/js-cookie': 3.0.6
       dayjs: 1.11.13
       intersection-observer: 0.12.2
       js-cookie: 3.0.5
@@ -5116,7 +5122,7 @@ snapshots:
 
   ansi-styles@5.2.0: {}
 
-  antd@5.26.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  antd@5.27.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@ant-design/colors': 7.2.1
       '@ant-design/cssinjs': 1.24.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -5127,7 +5133,7 @@ snapshots:
       '@babel/runtime': 7.27.6
       '@rc-component/color-picker': 2.0.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@rc-component/mutate-observer': 1.1.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@rc-component/qrcode': 1.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@rc-component/qrcode': 1.0.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@rc-component/tour': 1.15.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@rc-component/trigger': 2.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       classnames: 2.5.1
@@ -5154,12 +5160,12 @@ snapshots:
       rc-resize-observer: 1.4.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-segmented: 2.7.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-select: 14.16.8(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      rc-slider: 11.1.8(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rc-slider: 11.1.9(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-steps: 6.0.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-switch: 4.1.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      rc-table: 7.51.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      rc-tabs: 15.6.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      rc-textarea: 1.10.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rc-table: 7.54.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rc-tabs: 15.7.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rc-textarea: 1.10.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-tooltip: 6.4.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-tree: 5.13.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-tree-select: 5.27.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -6814,7 +6820,7 @@ snapshots:
       classnames: 2.5.1
       rc-input: 1.8.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-menu: 9.16.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      rc-textarea: 1.10.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rc-textarea: 1.10.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       rc-util: 5.44.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -6923,7 +6929,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  rc-slider@11.1.8(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  rc-slider@11.1.9(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.27.6
       classnames: 2.5.1
@@ -6947,7 +6953,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  rc-table@7.51.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  rc-table@7.54.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.27.6
       '@rc-component/context': 1.4.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -6958,7 +6964,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  rc-tabs@15.6.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  rc-tabs@15.7.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.27.6
       classnames: 2.5.1
@@ -6970,7 +6976,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  rc-textarea@1.10.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  rc-textarea@1.10.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.27.6
       classnames: 2.5.1
