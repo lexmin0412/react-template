@@ -18,8 +18,8 @@ importers:
         specifier: ^1.11.9
         version: 1.11.13
       pure-react-router:
-        specifier: ^0.2.4
-        version: 0.2.4(@types/react@19.1.8)(react@19.1.0)
+        specifier: ^0.3.1
+        version: 0.3.1(@types/react@19.1.8)(react@19.1.0)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -2741,8 +2741,8 @@ packages:
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
-  pure-react-router@0.2.4:
-    resolution: {integrity: sha512-Hp/kWJUOKYm4EJp2JDbOLJ5LavCU8j/dXIPHPOuPa4y1aFe4TfqivgRfT4vUWbfvr87autUKUYtbBoQ4mp8K6w==}
+  pure-react-router@0.3.1:
+    resolution: {integrity: sha512-NNVTSlwkgBlnC6fvmVhob0gRqZ3NCJQd+KPRrIGRo1xt8BiAGdh+xLtdwu/qx1/71Z6QGnzriL3XjM9x7RAGmw==}
     peerDependencies:
       '@types/react': '>= 16.0.0'
       react: '>=16.9.0'
@@ -6699,7 +6699,7 @@ snapshots:
 
   pure-rand@6.1.0: {}
 
-  pure-react-router@0.2.4(@types/react@19.1.8)(react@19.1.0):
+  pure-react-router@0.3.1(@types/react@19.1.8)(react@19.1.0):
     dependencies:
       '@types/react': 19.1.8
       react: 19.1.0
