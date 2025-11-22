@@ -10,13 +10,13 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 
 ## 技术栈
 
-- React V18
+- React V19
 - TypeScript V5
-- TailwindCSS V3
+- TailwindCSS V4
 - Pure React Router V0
 - Ant Design V5
 - AHooks V3
-- PNPM V7
+- PNPM V8
 - Rsbuild V1
 - Jest V29
 
@@ -210,28 +210,25 @@ Your site is live at https://lexmin0412.github.io/react-template/
 
 ### 8. 添加 tailwindcss 支持
 
+> 此部分完全参照 Rsbuild 官方 TailwindCSS v4 接入文档操作，详见：https://rsbuild.dev/zh/guide/basic/tailwindcss
+
 #### 8.1 安装依赖
 
 ```shell
 # 安装依赖
-pnpm add tailwindcss postcss autoprefixer -D
-# 初始化配置文件
-npx tailwindcss init -p
+pnpm add tailwindcss @tailwindcss/postcss -D
 ```
 
-执行完成后，根目录会新增 `tailwind.config.js` 和 `postcss.config.js` 两个文件。
+#### 8.2 配置 PostCSS
 
-#### 8.2 修改配置文件
+在 `postcss.config.js` 中添加如下内容：
 
-在 `tailwind.config.js` 中添加如下内容，使对应的文件能够被 tailwind 识别。
-
-```ts
+```js
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-}
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
 ```
 
 #### 8.3 引入基础类
@@ -239,9 +236,7 @@ export default {
 在入口 css 文件的顶部添加如下内容，这是书写 `tailwind` class 的基础。
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 ```
 
 #### 8.4 添加 tailwind 类名，查看效果
@@ -328,7 +323,7 @@ pnpm add antd dayjs
 
 #### 10.2 国际化
 
-AntD 的默认语言是英文，要切换为中文时需要进行国际化配置。
+Ant Design 的默认语言是英文，要切换为中文时需要进行国际化配置。
 
 在入口组件的最外层嵌套 `ConfigProvider`, 添加 locale 配置:
 
@@ -350,11 +345,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 ```
 
-放到路由容器外层的原因是路由容器组件中也可能会用到 Antd组件（例如弹窗）。
+放到路由容器外层的原因是路由容器组件中也可能会用到 Ant Design 组件（例如弹窗）。
 
 #### 10.3 配置主题
 
-AntD V5 采用了 DesignToken 设计，配置主题非常简单。
+Ant Design V5 采用了 DesignToken 设计，配置主题非常简单。
 
 上面在国际化中已经引入了 `ConfigProvider` 组件，这一步中使用它来修改主题色，给入口文件的 ConfigProvider 添加 theme 属性：
 
@@ -370,16 +365,6 @@ AntD V5 采用了 DesignToken 设计，配置主题非常简单。
 ```
 
 `token.colorPrimary` 即为整个系统的主题色。如果要修改其他属性，请查看 [官方文档](https://ant.design/docs/react/customize-theme-cn)。
-
-#### 10.4 规避 tailwind 的样式覆盖
-
-tailwind 的基础类中对标签默认样式进行了重置，会影响 AntD 组件的基础样式，所以我们需要把入口中的基础类引用去掉：
-
-```css
-/* @tailwind base; */  // 干掉这一行
-@tailwind components;
-@tailwind utilities;
-```
 
 ### 11. 添加自动化测试支持
 
@@ -407,7 +392,7 @@ npx jest --init
 
 #### 11.3 配置 babel
 
-由于在 proivder 项选择了 babel，所以需要安装 babel 相关依赖：
+由于在 provider 项选择了 babel，所以需要安装 babel 相关依赖：
 
 ```shell
 pnpm add babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript -D

@@ -9,32 +9,32 @@ importers:
   .:
     dependencies:
       ahooks:
-        specifier: ^3.7.8
+        specifier: ^3.9.5
         version: 3.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       antd:
-        specifier: ^5.23.2
+        specifier: ^5.27.5
         version: 5.29.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       dayjs:
-        specifier: ^1.11.9
+        specifier: ^1.11.18
         version: 1.11.19
       pure-react-router:
-        specifier: ^0.0.5
-        version: 0.0.5(react@19.2.0)
+        specifier: ^0.3.1
+        version: 0.3.1(@types/react@19.2.6)(react@19.2.0)
       react:
-        specifier: ^19.0.0
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: ^19.0.0
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
       '@ant-design/v5-patch-for-react-19':
         specifier: ^1.0.3
         version: 1.0.3(antd@5.29.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@babel/core':
-        specifier: ^7.22.10
+        specifier: ^7.28.4
         version: 7.28.5
       '@babel/preset-env':
-        specifier: ^7.22.10
+        specifier: ^7.28.5
         version: 7.28.5(@babel/core@7.28.5)
       '@babel/preset-react':
         specifier: ^7.22.5
@@ -46,10 +46,10 @@ importers:
         specifier: ^29.6.1
         version: 29.6.3
       '@rsbuild/core':
-        specifier: ^1.1.10
+        specifier: ^1.5.17
         version: 1.6.7
       '@rsbuild/plugin-react':
-        specifier: ^1.1.0
+        specifier: ^1.4.1
         version: 1.4.2(@rsbuild/core@1.6.7)
       '@tailwindcss/postcss':
         specifier: ^4.0.0
@@ -67,10 +67,10 @@ importers:
         specifier: ^29.5.3
         version: 29.5.14
       '@types/react':
-        specifier: ^19.0.7
+        specifier: ^19.2.2
         version: 19.2.6
       '@types/react-dom':
-        specifier: ^19.0.3
+        specifier: ^19.2.2
         version: 19.2.3(@types/react@19.2.6)
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.0.0
@@ -112,7 +112,7 @@ importers:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.10.1)(typescript@5.9.3)
       typescript:
-        specifier: ^5.0.2
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
@@ -2722,10 +2722,11 @@ packages:
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
-  pure-react-router@0.0.5:
-    resolution: {integrity: sha512-Aswbrm3eNdtRvZlx+KXvP4jhOPDV6jyBDtz4O8qljAlzKyk5dGjHC3OwYBMOOoXB4AuCKEWsJ78fH4SbYFZgjQ==}
+  pure-react-router@0.3.1:
+    resolution: {integrity: sha512-NNVTSlwkgBlnC6fvmVhob0gRqZ3NCJQd+KPRrIGRo1xt8BiAGdh+xLtdwu/qx1/71Z6QGnzriL3XjM9x7RAGmw==}
     peerDependencies:
-      react: ^18.0.0
+      '@types/react': '>= 16.0.0'
+      react: '>=16.9.0'
 
   querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
@@ -6655,8 +6656,9 @@ snapshots:
 
   pure-rand@6.1.0: {}
 
-  pure-react-router@0.0.5(react@19.2.0):
+  pure-react-router@0.3.1(@types/react@19.2.6)(react@19.2.0):
     dependencies:
+      '@types/react': 19.2.6
       react: 19.2.0
 
   querystringify@2.2.0: {}
