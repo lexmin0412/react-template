@@ -14,7 +14,7 @@ React 应用模板，用于个人项目的基座，免去每次初始化项目�
 - TypeScript V5
 - TailwindCSS V4
 - Pure React Router V0
-- Ant Design V5
+- Ant Design V6
 - AHooks V3
 - PNPM V8
 - Rsbuild V1
@@ -349,7 +349,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 #### 10.3 配置主题
 
-Ant Design V5 采用了 DesignToken 设计，配置主题非常简单。
+Ant Design V6 采用了 DesignToken 设计，配置主题非常简单。
 
 上面在国际化中已经引入了 `ConfigProvider` 组件，这一步中使用它来修改主题色，给入口文件的 ConfigProvider 添加 theme 属性：
 
